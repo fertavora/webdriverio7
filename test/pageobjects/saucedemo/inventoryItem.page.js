@@ -1,21 +1,22 @@
-const BasePage = require('../base.page');
+const Page = require('../page');
 
-const InventoryItemPage = {
-    itemName: () => browser.$('div.inventory_details_name'),
-    buttonAddToCart: () => browser.$('button[data-test^="add-to-cart-"]'),
-    buttonGoToCart: () => browser.$('a.shopping_cart_link'),
+class InventoryItemPage extends Page {
 
-    getInventoryItemName: async () => {
-        return BasePage.waitAndGetText(InventoryItemPage.itemName());
-    },
+    get itemName () { return browser.$('div.inventory_details_name') }
+    get buttonAddToCart () { return browser.$('button[data-test^="add-to-cart-"]') }
+    get buttonGoToCart () { return browser.$('a.shopping_cart_link') }
 
-    clickAddToCart: async () => {
-        await BasePage.waitAndClick(InventoryItemPage.buttonAddToCart());
-    },
+    async getInventoryItemName () {
+        return super.waitAndGetText(this.itemName);
+    }
 
-    clickGoToCart: async () => {
-        await BasePage.waitAndClick(InventoryItemPage.buttonGoToCart());
+    async clickAddToCart () {
+        await super.waitAndClick(this.buttonAddToCart);
+    }
+
+    async clickGoToCart () {
+        await super.waitAndClick(this.buttonGoToCart);
     }
 }
 
-module.exports = InventoryItemPage;
+module.exports = new InventoryItemPage();

@@ -1,9 +1,10 @@
-const BasePage = require('../base.page');
+const Page = require('../page');
 
-const InventoryPage = {
-    clickProductLinkByText: async (linkText) => {
-        BasePage.waitAndClick(browser.$(`=${linkText}`));
+class InventoryPage extends Page {
+
+    async clickProductLinkByText (linkText) {
+        await super.waitAndClick(browser.$(`=${linkText}`));
     }
 }
 
-module.exports = InventoryPage;
+module.exports = new InventoryPage();

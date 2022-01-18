@@ -1,13 +1,14 @@
-const BasePage = require('../base.page');
+const Page = require('../page');
 
-const CartPage = {
-    inventoryItemName: () => browser.$('div.inventory_item_name'),
-    inventoryItemQuantity: () => browser.$('div.cart_quantity'),
-    buttonCheckout: () => browser.$('button[data-test="checkout"]'),
+class CartPage extends Page {
 
-    clickCheckout: async () => {
-        await BasePage.waitAndClick(CartPage.buttonCheckout());
+    get inventoryItemName () { return browser.$('div.inventory_item_name') }
+    get inventoryItemQuantity () { return browser.$('div.cart_quantity') }
+    get buttonCheckout () { return browser.$('button[data-test="checkout"]') }
+
+    async clickCheckout() {
+        await super.waitAndClick(this.buttonCheckout)
     }
 }
 
-module.exports = CartPage;
+module.exports = new CartPage();

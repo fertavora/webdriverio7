@@ -26,6 +26,7 @@ exports.config = {
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
+        './test/specs/example.e2e.js'
     ],
     //
     // ============
@@ -57,6 +58,10 @@ exports.config = {
         maxInstances: 5,
         //
         browserName: 'chrome',
+        'goog:chromeOptions': {
+          args: ['start-maximized', 'headless', 'window-size=1920,1080']
+        },
+
         acceptInsecureCerts: true
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
@@ -71,6 +76,7 @@ exports.config = {
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
     logLevel: 'info',
+    outputDir: './logs',
     //
     // Set specific log levels per logger
     // loggers:

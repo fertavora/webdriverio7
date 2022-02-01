@@ -12,6 +12,6 @@
         "wdio-wait-for": "^2.2.1"
     },
     "scripts": {
-        "wdio": "wdio run wdio.conf.js"
+        "test": "wdio run wdio.conf.js"
     }
 }

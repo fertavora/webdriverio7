@@ -7,7 +7,7 @@ class LoginPage extends Page {
     get buttonLogin () { return browser.$('input[data-test="login-button"]') }
 
     async login(username, password) {
-        await super.open('/')
+        await super.open('/');
         await this.inputUsername.waitForDisplayed();
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);

@@ -7,7 +7,7 @@ class CartPage extends Page {
     get buttonCheckout () { return browser.$('button[data-test="checkout"]') }
 
     async clickCheckout() {
-        await super.waitAndClick(this.buttonCheckout)
+        await super.waitAndClick(this.buttonCheckout);
     }
 }
 
